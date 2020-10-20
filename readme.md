@@ -160,10 +160,10 @@ The Endpoints for CRUD is described below.
 }
 ```
 
-## Create new product
+## Create new Manufacturer
 
 ### Request
-    Post /manufacturers
+    Post /manufacturer
 
 ```json
 {
@@ -186,7 +186,7 @@ The Endpoints for CRUD is described below.
 ## Update Manufacturers
 
 ### Request
-    Patch /products/:id
+    Patch /manufacturer/:id
 
 ```json
 {
