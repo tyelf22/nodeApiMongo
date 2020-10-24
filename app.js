@@ -1,7 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const url = 'mongodb+srv://tyelf22:Nike2299@products.pu7kk.mongodb.net/products-db?retryWrites=true&w=majority'
-const PORT = process.env.PORT || 9000
+const PORT = process.env.PORT || 3000
+
+require('dotenv').config();
+let user = process.env.DB_USER
+let pass = process.env.DB_PASS
+const url = `mongodb+srv://${user}:${pass}@products.pu7kk.mongodb.net/products-db?retryWrites=true&w=majority`
+
+
 
 const app = express()
 
