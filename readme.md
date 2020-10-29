@@ -118,6 +118,41 @@ The Endpoints for CRUD is described below.
 [Item that was deleted]
 
 
+## Get products by manufacturer
+
+### Request
+    GET /products/productsByManufacturer/:manufacturerID
+
+```
+    http://localhost:3000/products/productsByManufacturer/5f8e620a39664a4b45804319
+```
+    
+#### Response
+
+```json
+[
+    {
+        "_id": "5f9ac3455f8d2566fc6d2c1c",
+        "name": "shirt",
+        "category": "clothing",
+        "price": 15,
+        "quantity": 25,
+        "manufacturer": "5f8e620a39664a4b45804319",
+        "__v": 0
+    },
+    {
+        "_id": "5f9ac3545f8d2566fc6d2c1d",
+        "name": "pants",
+        "category": "clothing",
+        "price": 30,
+        "quantity": 50,
+        "manufacturer": "5f8e620a39664a4b45804319",
+        "__v": 0
+    }
+]
+```
+
+
 # Manufacturers Endpoints
 
 
