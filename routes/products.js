@@ -1,6 +1,8 @@
 const express = require('express')
+const manufacturer = require('../models/manufacturer')
 const router = express.Router()
 const Product = require('../models/products')
+
 
 //Get all products
 router.get('/', async (req, res) => {
@@ -28,7 +30,8 @@ router.post('/', async(req, res) => {
         name: req.body.name,
         category: req.body.category,
         price: req.body.price,
-        quantity: req.body.quantity
+        quantity: req.body.quantity,
+        manufacturer: req.body.manufacturer
     })
 
     try{
@@ -55,6 +58,9 @@ router.patch('/:id', async(req, res) => {
         if(req.body.quantity){
             product.quantity = req.body.quantity
         }
+        if(req.body.manufacturer){
+            product.manufacturer = req.body.manufacturer
+        }
         
         const newProd = await product.save()
         res.json(newProd)
@@ -74,6 +80,17 @@ router.delete('/:id', async(req, res) => {
     catch(err){
         res.send(err)
     }
+})
+
+//find products my manufacturer
+router.get('/productsByManufacturer/:manufacturerID', (req, res) => {
+
+    Product.find( {manufacturer: req.params.manufacturerID },(err, products) => {
+        if(err)
+            console.log(err)
+
+        res.json(products)
+    })
 })
 
 
